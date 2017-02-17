@@ -4,3 +4,5 @@ gem "sinatra"
 
 gem "cucumber"
 gem "rspec"
+
+gem "aruba"
