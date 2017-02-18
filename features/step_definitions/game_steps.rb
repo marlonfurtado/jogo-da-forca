@@ -1,13 +1,24 @@
 # encoding: UTF-8
 
+Dado /^que comecei um jogo$/ do
+  start_new_game
+end
+
 Quando /^começo um novo jogo$/ do
+  start_new_game
+end
+
+Quando /^escolho que a palavra a ser sorteada deverá ter "(.*?)" letras$/ do |number_of_letters|
   steps %{
-    When I run 'forca' interactively
+    When I type "#{number_of_letters}"
   }
 end
 
-Então /^vejo na tela:$/ do |text|
+Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
   steps %{
-    Then the stdout should contain "#{text}"
+    Then it should pass with:
+    """
+    #{text}
+    """
   }
 end
