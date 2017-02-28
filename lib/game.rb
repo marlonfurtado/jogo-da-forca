@@ -1,6 +1,7 @@
 class Game
-  def initialize(output = STDOUT)
+  def initialize(output = STDOUT, input = STDIN)
     @output = output
+    @input = input
     @ended = false
   end
 
@@ -15,5 +16,6 @@ class Game
 
   def next_step
     @output.puts("Qual o tamanho da palavra a ser sorteada?")
+    word_length = @input.gets
   end
 end
