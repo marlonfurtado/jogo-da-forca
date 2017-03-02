@@ -42,5 +42,21 @@ describe Game do
         expect(game).to be_ended
       end
     end
+
+    context "when the player asks to raffle a word" do
+      it "raffles a word with the given length" do
+        word_length = "3"
+        allow(ui).to receive_messages(read: word_length)
+
+        game.next_step
+
+        expect(game.raffled_word.length).to eq(word_length.to_i)
+      end
+
+      it "prints a '_' for each letter in the raffled word" do
+      end
+    end
+
   end
+
 end
