@@ -55,10 +55,6 @@ describe Game do
 
       it "prints a '_' for each letter in the raffled word" do
       end
-
-      it "break CI test" do
-        expect(game).to be nil
-      end
     end
 
   end
