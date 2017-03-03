@@ -27,7 +27,8 @@ describe Game do
         question = "Qual o tamanho da palavra a ser sorteada?"
         expect(ui).to receive(:write).with(question)
 
-        expect(ui).to receive(:read)
+        word_length = "3"
+        expect(ui).to receive(:read).and_return(word_length)
 
         game.next_step
       end
@@ -54,9 +55,15 @@ describe Game do
       end
 
       it "prints a '_' for each letter in the raffled word" do
+        word_length = "3"
+
+        allow(ui).to receive_messages(read: word_length)
+
+        expect(ui).to receive(:write).with("_ _ _")
+
+        game.next_step
       end
     end
-
   end
 
 end

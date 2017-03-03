@@ -25,6 +25,7 @@ class Game
       @ended = true
     else
       raffle_word(player_input.to_i)
+      print_letters_feedback
     end
   end
 
@@ -33,4 +34,17 @@ class Game
     words = %w(hi mom game fruit)
     @raffled_word = words.detect { |word| word.length == word_length }
   end
+
+  def print_letters_feedback
+    letters_feedback = ""
+
+    @raffled_word.length.times do
+      letters_feedback << "_ "
+    end
+
+    letters_feedback.strip!
+
+    @ui.write(letters_feedback)
+  end
+
 end
