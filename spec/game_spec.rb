@@ -65,7 +65,7 @@ describe Game do
       end
 
       it "tells if it's not possible to raffle with the given length" do
-        word_length = "20"
+        # word_length = "20"
         allow(ui).to receive_messages(read: word_length)
 
         error_message = "Não temos uma palavra com o tamanho desejado,\n" <<
